@@ -1,6 +1,6 @@
 import {
   ratingProduct,
-  getAllproducts,
+  getALLproducts,
   getProduct,
   createProduct,
   updateProduct,
@@ -10,16 +10,17 @@ import express from "express";
 const router = express.Router();
 
 // RATING PRODUCT ROUTE
-router.put("/rating/:productId", ratingProduct);
+router.put("/rating/:id", ratingProduct);
 // GET ALL PRODUCTS
-router.get("/", getAllproducts);
+router.get("/", getALLproducts);
 // GET ONE PRODUCT
 router.get("/find/:id", getProduct);
-// CREATE PRODUCT
+//CREATE PRODUCT
 router.post("/", createProduct);
 // UPDATE PRODUCT
 router.put("/:id", updateProduct);
-// DELETE PRODUCT
+
+//DELETE PRODUCT
 router.delete("/:id", deleteProduct);
 
 export default router;
