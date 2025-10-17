@@ -5,6 +5,7 @@ import cron from "node-cron";
 import sendWelcomeEmail from "./EmailServices/sendWelcomeEmail.js";
 import sendPendingOrderEmail from "./EmailServices/sendPendingOrderEmail.js";
 import sendDeliveredOrderEmail from "./EmailServices/sendDeliveredOrderEmail.js";
+import sendPromotionEmail from "./EmailServices/sendPromotionemail.js";
 
 dotenv.config();
 const app = express();
@@ -23,6 +24,7 @@ const services = () => {
 const promotion = () => {
   cron.schedule("30 5 * * 5", () => {  
     // sending promotion email  
+    sendPromotionEmail();
   });
 };
 services();
