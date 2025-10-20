@@ -2,7 +2,7 @@ import React, { useState } from "react"; //( i added chatGPT)
 import Rating from "@mui/material/Rating"; //( i added chatGPT)
 
 const Product = ({img}) => {
-      const [value, setValue] = useState(4); // 3 ستاره به عنوان مقدار اولیه (i added chatGPT's)
+      const [value, setValue] = useState(4); // (i added chatGPT's)
     
 
         return (
