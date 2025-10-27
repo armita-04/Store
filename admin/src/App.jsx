@@ -5,6 +5,9 @@ import Users from "./pages/Users";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
 import Banners from "./pages/Banners";
+import NewProduct from "./pages/NewProduct";
+import Product from "./pages/Product";
+
 function App() {
   const Layout = () => {
     return (
@@ -43,6 +46,14 @@ function App() {
         {
           path: "/banners",
           element: <Banners />,
+        },
+        {
+          path: "/newproduct",
+          element: <NewProduct />,
+        },
+        {
+          path: "/product/:id",
+          element: <Product />,
         },
       ],
     },
