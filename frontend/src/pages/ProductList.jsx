@@ -43,7 +43,6 @@ const ProductList = () => {
             <option>Disaar</option>
             <option>Johnsons Baby</option>
             <option>Rexona</option>
-            <option>Kylie</option>
           </select>
         </div>
 
