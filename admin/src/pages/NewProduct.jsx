@@ -49,7 +49,7 @@ const NewProduct = () => {
     setUploading("Uploading ...")
     try {
       const uploadRes = await axios.post(
-          "https://api.cloudinary.com/v1_1/dkjenslgr/image/upload",
+          "https://api.cloudinary.com/v1_1/dz8hn4thj/image/upload",
           data,
       );
       const {url} = uploadRes.data;
@@ -69,21 +69,24 @@ const NewProduct = () => {
 
       <div className="mt-5 bg-white p-5 shadow-lg rounded-lg">
         <form className="flex flex-col md:flex-row rounded-lg">
+          
           {/* LEFT */}
           <div className="flex-1 space-y-5">
             <div>
+
               <label htmlFor="" className="font-semibold">
                 Product Image:
               </label>
-              {!selectedImage ? (<div className="border-2 h-[100px] w-[100px] border-[#444] border-solid rounded-md">
-                <div className="flex items-center justify-center mt-[40px]">
+
+              {!selectedImage ? (
+                <div className="border-2 h-[100px] w-[100px] border-[#444] border-solid rounded-md flex items-center justify-center">                
                   <label htmlFor="file" className="cursor-pointer">
                     <FaPlus className="text-[20px]" />
-                  </label>
-                </div>
-              </div>) :
-              (
-                <img src={URL.createObjectURL(selectedImage)} alt=""/>
+                  </label>                
+              </div>
+              ) : (
+                <img src={URL.createObjectURL(selectedImage)} alt="product"
+                 className="h-[100px] w-[100px] object-cover rounded-md"/>
               )
               }
               <input type="file" id='file' onChange={imageChange} style={{display: "none"}}/>
