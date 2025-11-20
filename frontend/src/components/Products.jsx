@@ -52,14 +52,18 @@ const Products = ({ filters, sort, query }) => {
   }, [products, filters, sort]);
 
   return (
-    <div className="flex flex-wrap mx-[40px]">
+      <div className="max-w-[1555px] mx-auto px-6">
+        <div className="flex flex-wrap justify-start gap-2">
       {filteredProducts.map((product, index) => (
-        <Link to={`/product/${product._id}`}>
-          <Product img={product.img} title={product.title} />
+        <Link to={`/product/${product._id}`} key={product._id}>
+          <Product product={product} />
         </Link>
       ))
       }
     </div>
+      </div>
+      
+    
   );
 };
 

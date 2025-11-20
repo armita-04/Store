@@ -212,25 +212,19 @@ const NewProduct = () => {
                 <option>Dry Skin</option>
                 <option>Pigmentation</option>
                 <option>Oil Control</option>
-                <option>Anti Acne</option>
-                <option>Sunburn</option>
-                <option>Skin Brightening</option>
+                <option>Anti Acne</option>                
+                <option>Brightening</option>
                 <option>Tan Removal</option>
                 <option>Night Routine</option>
                 <option>UV Protection</option>
-                <option>Damaged Hair</option>
-                <option>Frizzy Hair</option>
                 <option>Stretch Marks</option>
                 <option>Color Protection</option>
-                <option>Dry Hair</option>
+                <option>Moisturizing</option>
                 <option>Soothing</option>
                 <option>Dandruff</option>
                 <option>Greying</option>
-                <option>Hairfall</option>
-                <option>Hair Color</option>
                 <option>Well Being</option>
                 <option>Acne</option>
-                <option>Hair Growth</option>
               </select>
             </div>
 
@@ -306,7 +300,7 @@ const NewProduct = () => {
               ))}
             </div>
 
-            <button className="bg-slate-500 text-white py-2 px-4 rounded" onClick={handleUpload}>
+            <button className="bg-slate-500 text-white py-2 px-4 rounded  hover:bg-blue-300" onClick={handleUpload}>
               Create
             </button>
           </div>

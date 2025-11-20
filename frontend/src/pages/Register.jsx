@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { userRequest } from "../requestMethods";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -14,7 +14,11 @@ const Register = () => {
 
     try {
       await userRequest.post("/auth/register", { name, email, password });
-      navigate("/login");
+      toast.success("Your account has been successfully created ! Now Login");
+
+      setTimeout(() => {
+        navigate("/login");
+      }, 2000);
     } catch (error) {
       if (error.response && error.response.data.message) {
         toast.error(error.response.data.message);
@@ -62,7 +66,7 @@ const Register = () => {
               </label>
               <input
                 type="text"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#d55fbb]"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#aed1fb]"
                 placeholder="John Doe"
                 onChange={(e) => setName(e.target.value)}
               />
@@ -74,7 +78,7 @@ const Register = () => {
               </label>
               <input
                 type="text"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#d55fbb]"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#aed1fb]"
                 placeholder="example@example.com"
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -85,14 +89,14 @@ const Register = () => {
               </label>
               <input
                 type="password"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#d55fbb]"
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#aed1fb]"
                 placeholder="*******"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
             <button
-              className="w-full py-2 bg-[#d55fbb] text-white font-bold rounded-md transition-transform duration-500 hover:bg-blue-200 focus:outline-none focus:ring-red-500 transform hover:scale-105"
+              className="w-full py-2 bg-[#aed1fb] text-white font-bold rounded-md transition-transform duration-500 hover:bg-blue-600 focus:outline-none focus:ring-blue-500 transform hover:scale-105"
               onClick={handleRegister}
             >
               Create an account

@@ -27,17 +27,17 @@ const Banner = () => {
     <div className={`relative bg-[url(..banner.img)] bg-no-repeat bg-cover h-[80vh] px-[200px]`}
     style={{backgroundImage: `url(${banner.img})`}}
     >
-      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="absolute inset-0 bg-black opacity-40"></div>
 
       <div className="relative flex flex-col text-white w-[50%] pt-[10%]">
-        <span className="text-[30px] mt-3 ">
+        <span className="text-[30px] mt-3 transition-all duration-300 transform hover:scale-[1.05]">
           {banner.subtitle}
         </span>
-        <h1 className="text-3xl mt-3">{banner.title}</h1>
+        <h1 className="text-3xl mt-3 transition-all duration-300 transform hover:scale-[1.05]">{banner.title}</h1>
 
         <div className="flex items-center mt-[20px]">
-          <button className="bg-[#e48bcd] p-[10px] w-[200px] text-white cursor-pointer mr-9">Shop Now</button>
-          <button className="bg-gray-500 p-[10px] w-[200px] text-white cursor-pointer mr-9">CALL: (176) 678 890</button>
+          <button className="bg-[#bfdbfe] p-[10px] w-[200px] text-gray-800 font-semibold cursor-pointer mr-9  hover:bg-[#a9cefa] transition-all duration-300 transform hover:scale-[1.05]">Shop Now</button>
+          <button className="bg-gray-500 border-1 p-[10px] w-[200px] text-white cursor-pointer mr-9  hover:bg-gray-600 transition-all duration-300 transform hover:scale-[1.05]">CALL: (176) 678 890</button>
         </div>
       </div>
     </div>
