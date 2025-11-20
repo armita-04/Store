@@ -3,7 +3,13 @@ import asyncHandler from "express-async-handler";
 
 // CREATE ORDER
 const createOrder = asyncHandler(async (req, res) => {
-  const newOrder = Order(req.body);
+  // const newOrder = Order(req.body);
+  const newOrder = new Order({
+  ...req.body,
+  userId: req.user?._id || req.body.userId,
+});
+
+
   const savedOrder = await newOrder.save();
   if (!savedOrder) {
     res.status(400);

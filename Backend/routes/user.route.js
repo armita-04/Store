@@ -15,4 +15,5 @@ router.put("/:id", updateUser);
 //GET ONE USER ROUTE
 router.get("/find/:userId", getUser)
 
+
 export default router;

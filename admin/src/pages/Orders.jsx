@@ -1,6 +1,21 @@
 import { DataGrid } from "@mui/x-data-grid";
 import { FaCheckCircle, FaCheckDouble, FaClock } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import { userRequest } from "../requestMethods";
 const Orders = () => {
+  const [orders, setOrders] = useState([]);
+
+  const handleUpdateOrder = async (id) => {
+    try {
+      await userRequest.put(`/orders/${id}`, {
+        "status": 2
+      });
+      window.location.reload();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const columns = [
     { field: "_id", headerName: "Order ID", width: 100 },
     { field: "name", headerName: "Customer Name", width: 200 },
@@ -30,6 +45,7 @@ const Orders = () => {
           <>
             {params.row.status === 1 || params.row.status === 0 ? (
               <FaCheckCircle className="text-[25px] cursor-pointer m-2"
+              onClick={() => handleUpdateOrder(params.row._id)}
               />
             ) : (
               ""
@@ -40,26 +56,18 @@ const Orders = () => {
     },
   ];
 
-  const data = [
-    {
-      _id: "o101",
-      name: "Alice Johnson",
-      email: "alice@example.com",
-      status: 1,
-    },
-    { _id: "o102", name: "Bob Smith", email: "bob@example.com", status: 0 },
-    {
-      _id: "o103",
-      name: "Charlie Brown",
-      email: "charlie@example.com",
-      status: 2,
-    },
-    { _id: "o104", name: "David Clark", email: "david@example.com", status: 1 },
-    { _id: "o105", name: "Eve Stone", email: "eve@example.com", status: 0 },
-    { _id: "o106", name: "Frank Wison", email: "frank@example.com", status: 1 },
-    { _id: "o107", name: "Grace Lee", email: "grace@example.com", status: 2 },
-    { _id: "o108", name: "Henry Kim", email: "henry@example.com", status: 0 },
-  ];
+  useEffect(() => {
+    const getOrders = async () => {
+      try {
+        const res = await userRequest.get("/orders");
+        setOrders(res.data);
+      } catch (error) {
+        console.log(error);
+    }
+  }
+  getOrders();
+
+  }, []);
 
   return (
     <div className="p-5 w-[70vw] ">
@@ -67,7 +75,7 @@ const Orders = () => {
         <h1 className="m-[20px] text-[20px]">Orders</h1>
       </div>
       <div className="m-[30px]">
-        <DataGrid getRowId={(row) => row._id} rows={data} checkboxSelection columns={columns} />
+        <DataGrid getRowId={(row) => row._id} rows={orders} checkboxSelection columns={columns} />
       </div>
     </div>
 

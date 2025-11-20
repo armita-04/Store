@@ -13,18 +13,17 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin =  (e) => {
     e.preventDefault();
     try {
       setLoading(true);
 
       login(dispatch, { email, password });
 
-      console.log(user.currentUser)
+      console.log(user.currentUser);
 
       setLoading(false);
       navigate("/");
-
     } catch (error) {
       if (error.response && error.response.data.message) {
         toast.error(error.response.data.message);
@@ -33,6 +32,9 @@ const Login = () => {
       }
     }
   };
+
+
+
 
   return (
     <div className="flex items-center justify-center mt-[5%]">
@@ -52,7 +54,7 @@ const Login = () => {
 
         <div className="h-[500px] w-[500px] transition-transform duration-700 ease-in-out transform hover:scale-105">
           <img
-            src="/lotion1.jpg"
+            src="/beautybanner5.jpg"
             alt="login"
             className="object-cover h-full w-full"
           />
@@ -68,10 +70,12 @@ const Login = () => {
                 Email
               </label>
               <input
-                type="text"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#d55fbb]"
+                type="email"
+                value={email}
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#aed1fb]"
                 placeholder="example@example.com"
                 onChange={(e) => setEmail(e.target.value)}
+                required
               />
             </div>
             <div className="mb-5">
@@ -80,14 +84,15 @@ const Login = () => {
               </label>
               <input
                 type="password"
-                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#d55fbb]"
+                value={password} 
+                className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#aed1fb]"
                 placeholder="*******"
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
             <button
-              className="w-full py-2 bg-[#d55fbb] text-white font-bold rounded-md transition-transform duration-500 hover:bg-blue-200 focus:outline-none focus:ring-red-500 transform hover:scale-105"
+              className="w-full py-2 bg-[#aed1fb] text-white font-bold rounded-md transition-transform duration-500 hover:bg-blue-600 focus:outline-none focus:ring-blue-500 transform hover:scale-105"
               onClick={handleLogin}
             >
               {loading ? "loading ..." : "Login"}

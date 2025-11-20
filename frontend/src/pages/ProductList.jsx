@@ -7,7 +7,7 @@ const ProductList = () => {
   const location =useLocation();
   const query = location.pathname.split("/")[2];
   const [filters, setFilters] = useState({});
-  const {sort, setSort} = useState("newest")
+  const [sort, setSort] = useState("newest")
 
   const handleFilters = (e) =>{
      const value = e.target.value;
@@ -33,30 +33,24 @@ const ProductList = () => {
             <option>Tan Removal</option>
             <option>Night Routine</option>
             <option>UV Protection</option>
-            <option>Damaged Hair</option>
             <option>Frizzy Hair</option>
             <option>Stretch Marks</option>
             <option>Color Protection</option>
-            <option>Dry Hair</option>
             <option>Soothing</option>
             <option>Dandruff</option>
             <option>Greying</option>
-            <option>Hairfall</option>
-            <option>Hair Color</option>
             <option>Well Being</option>
             <option>Acne</option>
-            <option>Hair Growth</option>
           </select>
 
           <select name="brand" id="" className="p-2 mb-4 sm:mb-0 sm:mr-4 bg-gray-100 hover:bg-gray-200 rounded-md" onChange={handleFilters}>
-            <option>Garnier</option>
-            <option>kylie</option>
-            <option>Kiss Beauty</option>
-            <option>Dr Rashel</option>
-            <option>Luron</option>
-            <option>Nivea</option>
-            <option>Heaven Dove</option>
-            <option>Disaar</option>
+            <option>Beauty Of Joseon</option>
+            <option>Round Lab</option>
+            <option>Skin1004</option>
+            <option>Anua</option>
+            <option>Innisfree</option>
+            <option>ETUDE HOUSE</option>
+            <option>Heaven Dove</option>       
             <option>Johnsons Baby</option>
             <option>Rexona</option>
             <option>Vilvah</option>
